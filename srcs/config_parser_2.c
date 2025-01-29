@@ -20,6 +20,7 @@ void	cleanup_config(t_data *data, char *line, char **split, int fd)
 		free_split(split);
 	if (fd > 0)
 		close(fd);
+	get_next_line(-1);
 	free_resources(data);
 }
 

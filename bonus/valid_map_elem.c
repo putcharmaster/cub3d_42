@@ -31,26 +31,14 @@ static void	check_walls_around(t_data *data, int y, int x)
 {
 	if (y == 0 || (size_t)x >= ft_strlen(data->map[y - 1])
 		|| data->map[y - 1][x] == ' ' || !data->map[y - 1][x])
-	{
-		printf("Error: Map must be enclosed by walls (top)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (top)\n");
 	if (!data->map[y + 1] || (size_t)x >= ft_strlen(data->map[y + 1]) \
 		|| data->map[y + 1][x] == ' ' || !data->map[y + 1][x])
-	{
-		printf("Error: Map must be enclosed by walls (bottom)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (bottom)\n");
 	if (x == 0 || data->map[y][x - 1] == ' ')
-	{
-		printf("Error: Map must be enclosed by walls (left)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (left)\n");
 	if (!data->map[y][x + 1] || data->map[y][x + 1] == ' ')
-	{
-		printf("Error: Map must be enclosed by walls (right)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (right)\n");
 }
 
 static void	check_invalid_char(t_data *data, int y, int x)

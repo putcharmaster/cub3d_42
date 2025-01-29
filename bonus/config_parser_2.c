@@ -20,6 +20,7 @@ void	cleanup_config(t_data *data, char *line, char **split, int fd)
 		free_split(split);
 	if (fd > 0)
 		close(fd);
+	get_next_line(-1);
 	free_resources(data);
 }
 
@@ -76,7 +77,6 @@ int	load_texture(t_data *data, t_texture *texture, char *path)
 	if (!texture->img)
 	{
 		printf("Error: Could not load texture from %s\n", texture->path);
-		free(texture->path);
 		return (1);
 	}
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bits_per_pixel,

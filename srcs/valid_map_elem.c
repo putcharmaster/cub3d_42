@@ -6,11 +6,11 @@
 /*   By: sanhwang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:54:54 by dantoine          #+#    #+#             */
-/*   Updated: 2025/01/26 03:57:57 by sanhwang         ###   ########.fr       */
+/*   Updated: 2025/01/26 22:54:05 by sanhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cub3d.h"
+#include "../headers/cub3d_bonus.h"
 
 static void	get_map_dimensions(t_data *data, int *height, int *max_width)
 {
@@ -29,28 +29,16 @@ static void	get_map_dimensions(t_data *data, int *height, int *max_width)
 
 static void	check_walls_around(t_data *data, int y, int x)
 {
-	if (y == 0 || x >= ft_strlen(data->map[y - 1]) || data->map[y - 1][x] == ' '
-		|| !data->map[y - 1][x])
-	{
-		printf("Error: Map must be enclosed by walls (top)\n");
-		exit(1);
-	}
-	if (!data->map[y + 1] || x >= ft_strlen(data->map[y + 1]) \
+	if (y == 0 || (size_t)x >= ft_strlen(data->map[y - 1])
+		|| data->map[y - 1][x] == ' ' || !data->map[y - 1][x])
+		free_and_exit(data, "Error: Map must be enclosed by walls (top)\n");
+	if (!data->map[y + 1] || (size_t)x >= ft_strlen(data->map[y + 1]) \
 		|| data->map[y + 1][x] == ' ' || !data->map[y + 1][x])
-	{
-		printf("Error: Map must be enclosed by walls (bottom)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (bottom)\n");
 	if (x == 0 || data->map[y][x - 1] == ' ')
-	{
-		printf("Error: Map must be enclosed by walls (left)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (left)\n");
 	if (!data->map[y][x + 1] || data->map[y][x + 1] == ' ')
-	{
-		printf("Error: Map must be enclosed by walls (right)\n");
-		exit(1);
-	}
+		free_and_exit(data, "Error: Map must be enclosed by walls (right)\n");
 }
 
 static void	check_invalid_char(t_data *data, int y, int x)

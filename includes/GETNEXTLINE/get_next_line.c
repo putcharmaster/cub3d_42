@@ -90,13 +90,34 @@ char	*get_line(t_tab *list)
 	return (nxtline);
 }
 
+/* void	ft_lstcleartab(t_tab **lst)
+{
+	t_tab	*current;
+	t_tab	*next;
+
+	if (lst == NULL)
+		return ;
+	current = *lst;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current->str_buf);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
+} */
+
 char	*get_next_line(int fd)
 {
 	static t_tab	*list;
 	char			*nxtline;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		ft_lstcleartab(&list);
 		return (NULL);
+	}
 	create_lst(&list, fd);
 	if (list == NULL)
 		return (NULL);

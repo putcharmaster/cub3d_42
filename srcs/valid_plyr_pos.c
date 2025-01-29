@@ -6,11 +6,11 @@
 /*   By: sanhwang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:54:58 by dantoine          #+#    #+#             */
-/*   Updated: 2025/01/26 03:57:56 by sanhwang         ###   ########.fr       */
+/*   Updated: 2025/01/26 22:51:14 by sanhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cub3d.h"
+#include "../headers/cub3d_bonus.h"
 
 static void	set_north_south_direction(t_data *data, char dir)
 {
@@ -78,8 +78,7 @@ void	validate_player_position(t_data *data)
 	}
 	if (player_count != 1)
 	{
-		printf("Error: Map must contain exactly one player position \
+		free_and_exit(data, "Error: Map must contain exactly one player position \
         (N,S,E,W)\n");
-		exit(1);
 	}
 }

@@ -78,8 +78,7 @@ void	validate_player_position(t_data *data)
 	}
 	if (player_count != 1)
 	{
-		printf("Error: Map must contain exactly one player position \
+		free_and_exit(data, "Error: Map must contain exactly one player position \
         (N,S,E,W)\n");
-		exit(1);
 	}
 }

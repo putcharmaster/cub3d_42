@@ -12,6 +12,17 @@
 
 #include "../headers/cub3d_bonus.h"
 
+void	free_and_exit(t_data *data, char *msg)
+{
+	free_img(data);
+	free_map(data);
+	free_win(data);
+	free_textures(data);
+	free_mlx(data);
+	printf("%s\n", msg);
+	exit(1);
+}
+
 void	free_and_close(char *line, int fd)
 {
 	free(line);
@@ -55,8 +66,12 @@ void	free_textures(t_data *data)
 		mlx_destroy_image(data->mlx, data->east.img);
 	if (data->west.img)
 		mlx_destroy_image(data->mlx, data->west.img);
-	free(data->north.path);
-	free(data->south.path);
-	free(data->east.path);
-	free(data->west.path);
+	if (data->north.path)
+		free(data->north.path);
+	if (data->south.path)
+		free(data->south.path);
+	if (data->east.path)
+		free(data->east.path);
+	if (data->west.path)
+		free(data->west.path);
 }
