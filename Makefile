@@ -10,6 +10,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS =	./srcs/main.c \
 		./srcs/render.c \
+		./srcs/parse_map_0.c \
 		./srcs/parse_map_1.c \
 		./srcs/parse_map_2.c \
 		./srcs/check_map.c \
@@ -19,19 +20,26 @@ SRCS =	./srcs/main.c \
 		./srcs/raycasting.c \
 		./srcs/raycast_helpers.c \
 		./srcs/free.c \
-		./srcs/free_helpers.c \
+		./srcs/free_helpers_1.c \
+		./srcs/free_helpers_2.c \
 		./srcs/error.c \
+		./srcs/config_parser_0.c \
 		./srcs/config_parser_1.c \
 		./srcs/config_parser_2.c \
+		./srcs/config_parser_3.c \
 		./srcs/check_file.c \
 		./srcs/texture_mapping.c \
 		./srcs/pixel_put.c \
 		./srcs/draw_walls.c \
 		./srcs/valid_map_elem.c \
-		./srcs/valid_plyr_pos.c
+		./srcs/valid_plyr_pos.c \
+		./srcs/parse_map_helpers.c \
+		./srcs/parse_map_helpers_2.c
 
-BONUS = ./bonus/main.c \
-    	./bonus/render.c \
+BONUS = ./bonus/main_bonus.c \
+		./bonus/render_bonus.c \
+		./bonus/minimap.c \
+		./bonus/parse_map_0.c \
 		./bonus/parse_map_1.c \
 		./bonus/parse_map_2.c \
 		./bonus/check_map.c \
@@ -41,17 +49,21 @@ BONUS = ./bonus/main.c \
 		./bonus/raycasting.c \
 		./bonus/raycast_helpers.c \
 		./bonus/free.c \
-		./bonus/free_helpers.c \
+		./bonus/free_helpers_1.c \
+		./bonus/free_helpers_2.c \
 		./bonus/error.c \
+		./bonus/config_parser_0.c \
 		./bonus/config_parser_1.c \
 		./bonus/config_parser_2.c \
+		./bonus/config_parser_3.c \
 		./bonus/check_file.c \
 		./bonus/texture_mapping.c \
 		./bonus/pixel_put.c \
 		./bonus/draw_walls.c \
 		./bonus/valid_map_elem.c \
 		./bonus/valid_plyr_pos.c \
-		./bonus/minimap.c
+		./bonus/parse_map_helpers.c \
+		./bonus/parse_map_helpers_2.c
 
 GETNEXTLINE := includes/GETNEXTLINE/*.c
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS))

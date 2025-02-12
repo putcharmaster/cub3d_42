@@ -6,7 +6,7 @@
 /*   By: sanhwang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:53:27 by dantoine          #+#    #+#             */
-/*   Updated: 2025/01/26 22:51:05 by sanhwang         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:49:57 by sanhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	clean_map(t_data ***data)
 		free((**data)->map);
 		(**data)->map = NULL;
 	}
+	get_next_line(-1);
 	free_resources(**data);
 	exit(1);
 }

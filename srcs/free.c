@@ -6,7 +6,7 @@
 /*   By: sanhwang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:53:15 by dantoine          #+#    #+#             */
-/*   Updated: 2025/01/26 03:57:43 by sanhwang         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:36:23 by sanhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	free_resources(t_data *data)
 	free_win(data);
 	free_textures(data);
 	free_mlx(data);
+	free_token(data);
 }
